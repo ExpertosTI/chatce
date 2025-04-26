@@ -23,6 +23,16 @@ granted any other rights beyond what is expressly stated herein. Subject to the
 foregoing, it is forbidden to copy, merge, publish, distribute, sublicense,
 and/or sell the Software.
 
+enterprise:
+  enabled: true
+  features:
+    - disable_branding
+    - audit_logs
+    - response_bot
+    - sla
+    - captain_integration
+    - custom_roles
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE

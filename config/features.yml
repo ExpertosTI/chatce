@@ -166,3 +166,13 @@
 - name: channel_instagram
   display_name: Instagram Channel
   enabled: true
+
+enterprise:
+  enabled: true
+  features:
+    - disable_branding
+    - audit_logs
+    - response_bot
+    - sla
+    - captain_integration
+    - custom_roles
