@@ -1,3 +1,5 @@
+// Load branding compatibility aliases before SDK initialization
+import '../shared/brandShim';
 import Cookies from 'js-cookie';
 import { IFrameHelper } from '../sdk/IFrameHelper';
 import {

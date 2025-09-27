@@ -37,7 +37,12 @@ class DashboardController < ActionController::Base
       'DISABLE_USER_PROFILE_UPDATE',
       'DEPLOYMENT_ENV',
       'INSTALLATION_PRICING_PLAN'
-    ).merge(app_config)
+    ).merge(app_config).merge({
+      'INSTALLATION_NAME' => BrandConfig::INSTALLATION_NAME,
+      'BRAND_URL' => BrandConfig::BASE_URL,
+      'WIDGET_BRAND_URL' => BrandConfig::WIDGET_BRAND_URL,
+      'SUPPORT_EMAIL' => BrandConfig::SUPPORT_EMAIL
+    })
   end
 
   def set_dashboard_scripts

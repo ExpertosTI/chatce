@@ -175,7 +175,7 @@ export default {
         <woot-code
           :script="inbox.web_widget_script"
           lang="html"
-          :codepen-title="`${inbox.name} - Chatwoot Widget Test`"
+          :codepen-title="`${inbox.name} - CHATCE Widget Test`"
           enable-code-pen
         />
       </SettingsSection>
@@ -189,7 +189,7 @@ export default {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.chatwoot.com/docs/product/channels/live-chat/sdk/identity-validation/"
+            href="https://final.renace.tech/docs/product/channels/live-chat/sdk/identity-validation/"
           >
             {{ $t('INBOX_MGMT.SETTINGS_POPUP.HMAC_LINK_TO_DOCS') }}
           </a>

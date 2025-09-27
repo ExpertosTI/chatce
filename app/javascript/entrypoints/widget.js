@@ -1,4 +1,6 @@
 import { createApp } from 'vue';
+// Load compatibility aliases for rebranding (must run very early)
+import '../shared/brandShim';
 import { createI18n } from 'vue-i18n';
 
 import VueDOMPurifyHTML from 'vue-dompurify-html';

@@ -4,23 +4,22 @@ describe('#MessageFormatter', () => {
   describe('content with links', () => {
     it('should format correctly', () => {
       const message =
-        'Chatwoot is an opensource tool. [Chatwoot](https://www.chatwoot.com)';
+        'CHATCE is an opensource tool. [CHATCE](https://final.renace.tech)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <a href="https://www.chatwoot.com" class="link" rel="noreferrer noopener nofollow" target="_blank">Chatwoot</a></p>'
+        '<p>CHATCE is an opensource tool. <a href="https://final.renace.tech" class="link" rel="noreferrer noopener nofollow" target="_blank">CHATCE</a></p>'
       );
     });
     it('should format correctly', () => {
-      const message =
-        'Chatwoot is an opensource tool. https://www.chatwoot.com';
+      const message = 'CHATCE is an opensource tool. https://final.renace.tech';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <a href="https://www.chatwoot.com" class="link" rel="noreferrer noopener nofollow" target="_blank">https://www.chatwoot.com</a></p>'
+        '<p>CHATCE is an opensource tool. <a href="https://final.renace.tech" class="link" rel="noreferrer noopener nofollow" target="_blank">https://final.renace.tech</a></p>'
       );
     });
     it('should not convert template variables to links when linkify is disabled', () => {
-      const message = 'Hey {{customer.name}}, check https://chatwoot.com';
+      const message = 'Hey {{customer.name}}, check https://final.renace.tech';
       const formatter = new MessageFormatter(message, false, false, false);
       expect(formatter.formattedMessage).toMatch(
-        '<p>Hey {{customer.name}}, check https://chatwoot.com</p>'
+        '<p>Hey {{customer.name}}, check https://final.renace.tech</p>'
       );
     });
   });
@@ -38,71 +37,71 @@ describe('#MessageFormatter', () => {
   describe('content with image and has "cw_image_height" query at the end of URL', () => {
     it('should set image height correctly', () => {
       const message =
-        'Chatwoot is an opensource tool. ![](http://chatwoot.com/chatwoot.png?cw_image_height=24px)';
+        'CHATCE is an opensource tool. ![](https://final.renace.tech/chatce.png?cw_image_height=24px)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <img src="http://chatwoot.com/chatwoot.png?cw_image_height=24px" alt="" style="height: 24px;" /></p>'
+        '<p>CHATCE is an opensource tool. <img src="https://final.renace.tech/chatce.png?cw_image_height=24px" alt="" style="height: 24px;" /></p>'
       );
     });
 
     it('should set image height correctly if its original size', () => {
       const message =
-        'Chatwoot is an opensource tool. ![](http://chatwoot.com/chatwoot.png?cw_image_height=auto)';
+        'CHATCE is an opensource tool. ![](https://final.renace.tech/chatce.png?cw_image_height=auto)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <img src="http://chatwoot.com/chatwoot.png?cw_image_height=auto" alt="" style="height: auto;" /></p>'
+        '<p>CHATCE is an opensource tool. <img src="https://final.renace.tech/chatce.png?cw_image_height=auto" alt="" style="height: auto;" /></p>'
       );
     });
 
     it('should not set height', () => {
       const message =
-        'Chatwoot is an opensource tool. ![](http://chatwoot.com/chatwoot.png)';
+        'CHATCE is an opensource tool. ![](https://final.renace.tech/chatce.png)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <img src="http://chatwoot.com/chatwoot.png" alt="" /></p>'
+        '<p>CHATCE is an opensource tool. <img src="https://final.renace.tech/chatce.png" alt="" /></p>'
       );
     });
   });
 
   describe('tweets', () => {
     it('should return the same string if not tags or @mentions', () => {
-      const message = 'Chatwoot is an opensource tool';
+      const message = 'CHATCE is an opensource tool';
       expect(new MessageFormatter(message).formattedMessage).toMatch(message);
     });
 
     it('should add links to @mentions', () => {
       const message =
-        '@chatwootapp is an opensource tool thanks @longnonexistenttwitterusername';
+        '@chatceapp is an opensource tool thanks @longnonexistenttwitterusername';
       expect(
         new MessageFormatter(message, true, false).formattedMessage
       ).toMatch(
-        '<p><a href="http://twitter.com/chatwootapp" class="link" rel="noreferrer noopener nofollow" target="_blank">@chatwootapp</a> is an opensource tool thanks @longnonexistenttwitterusername</p>'
+        '<p><a href="http://twitter.com/chatceapp" class="link" rel="noreferrer noopener nofollow" target="_blank">@chatceapp</a> is an opensource tool thanks @longnonexistenttwitterusername</p>'
       );
     });
 
     it('should add links to #tags', () => {
-      const message = '#chatwootapp is an opensource tool';
+      const message = '#chatceapp is an opensource tool';
       expect(
         new MessageFormatter(message, true, false).formattedMessage
       ).toMatch(
-        '<p><a href="https://twitter.com/hashtag/chatwootapp" class="link" rel="noreferrer noopener nofollow" target="_blank">#chatwootapp</a> is an opensource tool</p>'
+        '<p><a href="https://twitter.com/hashtag/chatceapp" class="link" rel="noreferrer noopener nofollow" target="_blank">#chatceapp</a> is an opensource tool</p>'
       );
     });
   });
 
   describe('private notes', () => {
     it('should return the same string if not tags or @mentions', () => {
-      const message = 'Chatwoot is an opensource tool';
+      const message = 'CHATCE is an opensource tool';
       expect(new MessageFormatter(message).formattedMessage).toMatch(message);
     });
 
     it('should add links to @mentions', () => {
       const message =
-        '@chatwootapp is an opensource tool thanks @longnonexistenttwitterusername';
+        '@chatceapp is an opensource tool thanks @longnonexistenttwitterusername';
       expect(
         new MessageFormatter(message, false, true).formattedMessage
       ).toMatch(message);
     });
 
     it('should add links to #tags', () => {
-      const message = '#chatwootapp is an opensource tool';
+      const message = '#chatceapp is an opensource tool';
       expect(
         new MessageFormatter(message, false, true).formattedMessage
       ).toMatch(message);
@@ -112,9 +111,9 @@ describe('#MessageFormatter', () => {
   describe('plain text content', () => {
     it('returns the plain text without HTML', () => {
       const message =
-        '<b>Chatwoot is an opensource tool. https://www.chatwoot.com</b>';
+        '<b>CHATCE is an opensource tool. https://final.renace.tech</b>';
       expect(new MessageFormatter(message).plainText).toMatch(
-        'Chatwoot is an opensource tool. https://www.chatwoot.com'
+        'CHATCE is an opensource tool. https://final.renace.tech'
       );
     });
   });

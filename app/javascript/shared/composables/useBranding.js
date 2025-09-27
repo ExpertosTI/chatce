@@ -7,9 +7,11 @@ import { useMapGetter } from 'dashboard/composables/store.js';
 export function useBranding() {
   const globalConfig = useMapGetter('globalConfig/get');
   /**
-   * Replaces "Chatwoot" in text with the installation name from global config
+   * Replaces occurrences of the original product name (Chatwoot) or its
+   * rebranded token (CHATCE) in text with the installation name from global config.
+   * This handles different casings to be resilient during an in-progress rebrand.
    * @param {string} text - The text to process
-   * @returns {string} - Text with "Chatwoot" replaced by installation name
+   * @returns {string} - Text with the product name replaced by installation name
    */
   const replaceInstallationName = text => {
     if (!text) return text;
@@ -17,7 +19,10 @@ export function useBranding() {
     const installationName = globalConfig.value?.installationName;
     if (!installationName) return text;
 
-    return text.replace(/Chatwoot/g, installationName);
+    // Only replace the explicit rebrand token CHATCE (case-sensitive).
+    // We avoid replacing arbitrary occurrences of the legacy product name to keep
+    // existing runtime/embedded identifiers stable during a staged rebrand.
+    return text.replace(/CHATCE/g, installationName);
   };
 
   return {
