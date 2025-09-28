@@ -2,7 +2,7 @@
 // This file creates safe aliases so external embeds and existing code continue to work
 // while visible strings and asset branding are updated.
 
-(function () {
+(function brandShim() {
   if (typeof window === 'undefined') return;
 
   // Alias core globals used by embeds

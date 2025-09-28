@@ -59,7 +59,7 @@ describe('openExternalLinksInNewTab', () => {
         <body>
           <div id="cw-article-content">
             <a href="https://external.com" id="external">External</a>
-            <a href="https://app.chatwoot.com/page" id="internal">Internal</a>
+          <a href="https://app.chatce.com/page" id="internal">Internal</a>
             <a href="https://custom.domain.com/page" id="custom">Custom</a>
             <a href="https://example.com" id="nested"><code>Code</code><strong>Bold</strong></a>
             <ul>
@@ -68,7 +68,7 @@ describe('openExternalLinksInNewTab', () => {
           </div>
         </body>
       </html>`,
-      { url: 'https://app.chatwoot.com/hc/article' }
+      { url: 'https://app.chatce.com/hc/article' }
     );
 
     document = dom.window.document;

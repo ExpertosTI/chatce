@@ -7,7 +7,7 @@ import { useMapGetter } from 'dashboard/composables/store.js';
 export function useBranding() {
   const globalConfig = useMapGetter('globalConfig/get');
   /**
-   * Replaces occurrences of the original product name (Chatwoot) or its
+   * Replaces occurrences of the original product name (CHATCE) or its
    * rebranded token (CHATCE) in text with the installation name from global config.
    * This handles different casings to be resilient during an in-progress rebrand.
    * @param {string} text - The text to process

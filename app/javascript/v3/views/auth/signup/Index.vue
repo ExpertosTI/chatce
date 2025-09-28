@@ -20,8 +20,8 @@ export default {
   },
   computed: {
     ...mapGetters({ globalConfig: 'globalConfig/get' }),
-    isAChatwootInstance() {
-      return this.globalConfig.installationName === 'Chatwoot';
+    isAChatceInstance() {
+      return this.globalConfig.installationName === 'CHATCE';
     },
   },
   beforeMount() {
@@ -70,7 +70,7 @@ export default {
         </div>
       </div>
       <Testimonials
-        v-if="isAChatwootInstance"
+        v-if="isAChatceInstance"
         class="flex-1"
         @resize-containers="resizeContainers"
       />

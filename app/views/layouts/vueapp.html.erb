@@ -44,7 +44,7 @@
         whatsappApiVersion: '<%= @global_config['WHATSAPP_API_VERSION'] %>',
         signupEnabled: '<%= @global_config['ENABLE_ACCOUNT_SIGNUP'] %>',
         isEnterprise: '<%= @global_config['IS_ENTERPRISE'] %>',
-        isMfaEnabled: '<%= Chatwoot.mfa_enabled? %>',
+  isMfaEnabled: '<%= Chatwoot.mfa_enabled? %>',
         <% if @global_config['IS_ENTERPRISE'] %>
         enterprisePlanName: '<%= @global_config['INSTALLATION_PRICING_PLAN'] %>',
         <% end %>
@@ -56,6 +56,8 @@
         selectedLocale: '<%= I18n.locale %>'
       }
       window.globalConfig = <%= raw @global_config.to_json %>
+      // Backwards-compatible alias for rebranding runtime (do not remove)
+      window.chatceConfig = window.chatwootConfig;
       window.browserConfig = {
         browser_name: '<%= browser.name %>',
       }
